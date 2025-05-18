@@ -1,26 +1,26 @@
 # Aloe.Utils.Logging.Dump
 
-バイト配列を16進ダンプ形式でログ出力するための軽量で使いやすいライブラリです。
-主にデバッグやバイナリデータの解析が必要なアプリケーションで使用できます。
+A lightweight and easy-to-use library for logging byte arrays in hexadecimal dump format.
+Primarily used in applications that require debugging and binary data analysis.
 
-## 主な機能
+## Main Features
 
-* バイト配列を16進ダンプ形式でログ出力
-* 16バイトごとの行区切り表示
-* パフォーマンスに最適化された実装（ValueStringBuilder使用）
-* Microsoft.Extensions.Loggingとの統合
+* Log byte arrays in hexadecimal dump format
+* Line breaks every 16 bytes
+* Performance-optimized implementation (using ValueStringBuilder)
+* Integration with Microsoft.Extensions.Logging
 
-## 対応環境
+## Supported Environments
 
-* .NET 9 以降
+* .NET 9 and later
 
-## 使用例
+## Usage Example
 
 ```csharp
 using Microsoft.Extensions.Logging;
 using Aloe.Utils.Logging.Dump;
 
-// ロガーファクトリーの作成
+// Create logger factory
 using var loggerFactory = LoggerFactory.Create(builder =>
 {
     builder
@@ -28,10 +28,10 @@ using var loggerFactory = LoggerFactory.Create(builder =>
         .AddConsole();
 });
 
-// ロガーの取得
+// Get logger
 var logger = loggerFactory.CreateLogger<Program>();
 
-// サンプルデータの作成
+// Create sample data
 byte[] sampleData =
 [
     0x00, 0x01, 0x02, 0x03, 0x04, 0x05, 0x06, 0x07,
@@ -40,11 +40,11 @@ byte[] sampleData =
     0x18, 0x19, 0x1A, 0x1B, 0x1C, 0x1D, 0x1E, 0x1F
 ];
 
-// ダンプ出力の実行
+// Execute dump output
 logger.DumpDebug(sampleData);
 ```
 
-出力例:
+Example output:
 ```
 00 01 02 03 04 05 06 07 08 09 0A 0B 0C 0D 0E 0F
 -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
@@ -52,6 +52,6 @@ logger.DumpDebug(sampleData);
 10 11 12 13 14 15 16 17 18 19 1A 1B 1C 1D 1E 1F
 ```
 
-## ライセンス
+## License
 
 MIT License
