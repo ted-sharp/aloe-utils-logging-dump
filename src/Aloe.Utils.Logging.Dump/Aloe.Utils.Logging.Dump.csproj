@@ -9,7 +9,7 @@
 		<AssemblyName>$(MSBuildProjectName)</AssemblyName>
 		<Platforms>AnyCPU</Platforms>
 		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-		<Version>1.0.0</Version>
+		<Version>1.0.1</Version>
 		<Authors>ted-sharp</Authors>
 		<Company></Company>
 		<Description>バイト配列を16進ダンプ形式でログ出力するためのユーティリティライブラリ</Description>
