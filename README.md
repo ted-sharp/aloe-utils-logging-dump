@@ -1,5 +1,8 @@
 # Aloe.Utils.Logging.Dump
 
+[![English](https://img.shields.io/badge/Language-English-blue)](./README.md)
+[![日本語](https://img.shields.io/badge/言語-日本語-blue)](./README.ja.md)
+
 [![NuGet Version](https://img.shields.io/nuget/v/Aloe.Utils.Logging.Dump.svg)](https://www.nuget.org/packages/Aloe.Utils.Logging.Dump)
 [![NuGet Downloads](https://img.shields.io/nuget/dt/Aloe.Utils.Logging.Dump.svg)](https://www.nuget.org/packages/Aloe.Utils.Logging.Dump)
 [![License](https://img.shields.io/github/license/ted-sharp/aloe-utils-logging-dump.svg)](LICENSE)
