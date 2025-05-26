@@ -28,8 +28,8 @@ public static class LoggerDumpExtensions
             return;
         }
 
-        const string h1 = "00 01 02 03 04 05 06 07 08 09 0A 0B 0C 0D 0E 0F";
-        const string h2 = "-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --";
+        const string h1 = "00000000 | 00 01 02 03 04 05 06 07 08 09 0A 0B 0C 0D 0E 0F | 0123456789ABCDEF";
+        const string h2 = "-------- | -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- | ----------------";
 
         // 1) 初期バッファはスタック上に確保 (512文字)
         var vsb = new ValueStringBuilder(stackalloc char[512]);
@@ -42,6 +42,9 @@ public static class LoggerDumpExtensions
         // 3) 各 16 バイトを16進ダンプ
         for (var i = 0; i < bytes.Length; i += 16)
         {
+            // オフセットアドレスを表示
+            vsb.Append($"{i:X8} | ");
+
             var count = Math.Min(16, bytes.Length - i);
             for (var j = 0; j < count; j++)
             {
@@ -58,6 +61,21 @@ public static class LoggerDumpExtensions
                 {
                     vsb.Append(' ');
                 }
+            }
+
+            // 16バイト未満の場合の空白埋め
+            if (count < 16)
+            {
+                vsb.Append(new string(' ', (16 - count) * 3));
+            }
+
+            // ASCII表現を表示
+            vsb.Append(" | ");
+            for (var j = 0; j < count; j++)
+            {
+                var v = bytes[i + j];
+                var c = (v is >= 32 and <= 126) ? (char)v : '.';
+                vsb.Append(c);
             }
 
             vsb.AppendLine();
