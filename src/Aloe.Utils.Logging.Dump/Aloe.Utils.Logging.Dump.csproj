@@ -9,12 +9,19 @@
 		<AssemblyName>$(MSBuildProjectName)</AssemblyName>
 		<Platforms>AnyCPU</Platforms>
 		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-		<Version>1.0.1</Version>
+		<Version>1.1.0</Version>
+		<PackageReleaseNotes>
+			Improved dump output format:
+			- Each line now shows offset, hex values, and ASCII side-by-side.
+			- Easier to read and debug binary data.
+		</PackageReleaseNotes>
 		<Authors>ted-sharp</Authors>
 		<Company></Company>
-		<Description>バイト配列を16進ダンプ形式でログ出力するためのユーティリティライブラリ</Description>
+		<Description>
+			Adds a `DumpDebug` extension method to `ILogger` for outputting binary data in a human-readable hex dump format with offset and ASCII columns. Suitable for low-level debugging.
+		</Description>
 		<PackageId>Aloe.Utils.Logging.Dump</PackageId>
-		<PackageTags>logging;dump;hex;debug;binary</PackageTags>
+		<PackageTags>logging;dump;hex;debug;binary;ILogger;extensions;hexdump;bytearray;diagnostics</PackageTags>
 		<PackageLicenseExpression>MIT</PackageLicenseExpression>
 		<PackageProjectUrl>https://github.com/ted-sharp/aloe-utils-logging-dump</PackageProjectUrl>
 		<RepositoryUrl>https://github.com/ted-sharp/aloe-utils-logging-dump.git</RepositoryUrl>
