@@ -16,14 +16,15 @@ public static class LoggerDumpExtensions
     /// </summary>
     /// <param name="logger">ログ出力先の <see cref="ILogger"/> インスタンス。</param>
     /// <param name="bytes">ダンプするバイト配列。</param>
+    /// <exception cref="ArgumentNullException">loggerまたはbytesがnullの場合。</exception>
     public static void DumpDebug(
         this ILogger logger,
         byte[] bytes)
     {
-        if (logger == null ||
-            !logger.IsEnabled(LogLevel.Debug) ||
-            bytes == null ||
-            bytes.Length == 0)
+        ArgumentNullException.ThrowIfNull(logger);
+        ArgumentNullException.ThrowIfNull(bytes);
+        
+        if (!logger.IsEnabled(LogLevel.Debug) || bytes.Length == 0)
         {
             return;
         }
