@@ -17,7 +17,7 @@ dotnet build .\Aloe.Utils.Logging.Dump\Aloe.Utils.Logging.Dump.csproj -c Release
 
 rem Publish the application
 echo Building and publishing...
-dotnet publish .\Aloe.Utils.Logging.Dump\Aloe.Utils.Logging.Dump.csproj -c Release -r win-x64 -o .\publish\AloeUtilsWafuRomaji
+dotnet publish .\Aloe.Utils.Logging.Dump\Aloe.Utils.Logging.Dump.csproj -c Release -r win-x64 -o .\publish\AloeUtilsLoggingDump
 
 rem Create NuGet package
 echo Creating NuGet package...
